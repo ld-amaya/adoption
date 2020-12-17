@@ -19,4 +19,5 @@ db.create_all()
 @app.route("/")
 def home():
     """Manages home page"""
-    return render_template("index.html")
+    pets = Pet.query.all()
+    return render_template("index.html", pets=pets)
