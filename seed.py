@@ -1,4 +1,4 @@
-from models import Pet
+from models import db, Pet
 from app import app
 
 # drop all tables the create
@@ -32,10 +32,10 @@ pet3 = Pet(
     photo='https://images.unsplash.com/photo-1603349136483-c9087327668c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHBldHN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
     age='1',
     notes='Can play fetch, well trained',
-    available='False'
+    available=False
 )
 
-db.session.addd(pet1)
-db.session.addd(pet2)
-db.session.addd(pet3)
-db.sesssion.commit()
+db.session.add(pet1)
+db.session.add(pet2)
+db.session.add(pet3)
+db.session.commit()
