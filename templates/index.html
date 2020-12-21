@@ -3,22 +3,25 @@
 {% block title %} Adoption Agency {% endblock %}
 
 {% block content %} 
-    <h1>Pets</h1>
-    <div class="row">
-        {% for pet in pets  %}
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="{{pet.photo}}" class="card-img-top" alt="{{pet.species}}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{pet.name}}</h5>
-                        <p class="card-text">
-                            {% if pet.available %}
-                                <span>{{pet.name}} is available</span>
-                            {% else %}
-                                <span>{{pet.name}} is not available</span>
-                            {% endif %}
-                        </p>
-                    </div>
+    <nav class = "navbar fixed-top navbar-light bg-light">
+        <h1>Pets</h1>
+        <div class="form-inline">
+            <a href="/add" class = "btn btn-primary btn-sm mr-sm-0">Add New Pet</a>
+        </div>
+    </nav>
+    <div class="card-columns mt-5">
+        {% for pet in pets  %}       
+            <div class="card">
+                <img src="{{pet.image_link()}}" class="card-img-top" alt="{{pet.species}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{pet.name}}</h5>
+                    <p class="card-text">
+                        {% if pet.available %}
+                            <span>{{pet.name}} is available</span>
+                        {% else %}
+                            <span>{{pet.name}} is not available</span>
+                        {% endif %}
+                    </p>
                 </div>
             </div>
         {% endfor %}
