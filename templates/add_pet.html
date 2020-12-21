@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+
+{% block title %} Add Pet {% endblock %} 
+
+{% block content %}
+
+<div class="row justify-content-center">
+	<div class="col-md-7">
+		<h1>Add New Pet for Adoption</h1>
+		<form action="/add" method="POST">
+			{{form.hidden_tag()}}
+			{% for field in form if field.widget.input_type!='hidden' %}
+			<div class="form-group">
+				{{field.label}}
+				{% for err in field.errors %}
+					<small class = "badge badge-danger">
+						{{err}}
+					</small>
+				{% endfor %}
+				{{field(class_='form-control')}}
+			</div>
+			{% endfor %}
+			<a href="/" class="btn btn-danger btn-sm">Cancel</a>
+			<button type="submit" class="btn btn-primary btn-sm">Add New Pet</button>
+		</form>
+	</div>
+</div>
+{% endblock %}
