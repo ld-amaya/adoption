@@ -22,6 +22,11 @@ class Pet(db.Model):
                           nullable=False,
                           default=True)
 
+    def image_link(self):
+        """Returns default image if not available"""
+
+        return self.photo or "https://cdn.shopify.com/s/files/1/0799/9645/products/SmallPetLiner_large.jpg?v=1597352991"
+
 
 def connect_db(app):
     """Connect to the database"""
