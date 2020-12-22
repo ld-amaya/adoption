@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %} Adoption Agency {% endblock %}
+{% block title %} {{pets.species}} {% endblock %}
 
 {% block content %} 
     <nav class = "navbar fixed-top navbar-light bg-light">
-        <h1><a href="/">Pets</a></h1>
+        <h1>Pets</h1>
         <div class="form-inline">
-            <a href="/available" class="btn btn-success btn-sm mr-3">Available Only</a>
-            <a href="/not_available" class="btn btn-warning btn-sm mr-3">Not Available Only</a>
-            <a href="/add" class = "btn btn-primary btn-sm mr-sm-0 mr-3">Add New Pet</a>
+            <a href="/" class = "btn btn-warning btn-sm mr-sm-0">Back</a>
         </div>
     </nav>
     <div class="card-columns mt-5">

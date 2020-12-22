@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit Pet {{pet.name}} {% endblock %}
+
+{% block content %}
+
+    <h1>Edit Pet {{pet.name}}</h1>
+    <form action = "/edit/{{pet.id}}" method="POST">
+        {% include '_forms.html' %}
+        <a href="/{{pet.id}}" class ="btn btn-warning btn-sm">Back</a>
+        <button type="submit" class = "btn btn-success btn-sm">Update Pet</button>
+    </form>
+
+{% endblock %}

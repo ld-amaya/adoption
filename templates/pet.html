@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Pet {{pet.name}} {% endblock %}
+
+{% block content %}
+    <nav class = "navbar fixed-top navbar-light bg-light mb-5">
+        <h1>Pets</h1>
+        <div class="form-inline">
+            <a href="/add" class = "btn btn-primary btn-sm mr-sm-0">Add New Pet</a>
+        </div>
+    </nav>
+    <div class="card mb-3 mt-5">
+        <div class="row no-gutters">
+            <div class="col-md-4 p-5">
+                <img src="{{pet.image_link()}}" alt="{{pet.species}}" class ="card-img">
+            </div>
+            <div class="col-md-8 p-5">
+                {% include "_flash.html" %}
+                <h5 class ="card-title">{{pet.name}}</h5>
+                <p class ="card-text">{{pet.name}} a {{pet.age}} yr old {{pet.species}}. </p>
+                <p class ="card-text">{{pet.notes}}</p>
+                <p class="card-text">
+                    {% include "_isAvailable.html" %}
+                </p>
+                <a href="/" class ="btn btn-warning btn-sm">Home</a>
+                <a href="/edit/{{pet.id}}" class ="btn btn-success btn-sm">Edit Pet</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

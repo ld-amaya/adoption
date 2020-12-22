@@ -1,0 +1,20 @@
+{{form.hidden_tag()}}
+{% for field in form if field.widget.input_type!='hidden' %}
+	<div class="form-group">
+        {% if field.name == "available" %}
+            <div class="form-check">
+                {{field(class_='form-check-input')}}
+                {{field.label(class_="form-check-label" )}}
+            </div>
+        {% else %} 
+            {{field.label}}
+            {{field(class_='form-control')}}
+        {% endif %}
+		{% for err in field.errors %}
+			<small class = "badge badge-danger">
+				{{err}}
+			</small>
+		{% endfor %}
+		
+	</div>
+{% endfor %}
