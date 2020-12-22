@@ -27,3 +27,16 @@ class PetForms(FlaskForm):
 
     notes = TextAreaField("Comments / Notes",
                           validators=[Optional()])
+
+
+class EditPetForm(FlaskForm):
+
+    photo = StringField(
+        "Photo URL",
+        validators=[Optional(), URL()])
+
+    notes = TextAreaField("Comments / Notes",
+                          validators=[Optional()])
+
+    available = BooleanField("Available",
+                             validators=[Optional()])
